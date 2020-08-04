@@ -1,0 +1,56 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* universal styling for background image container*/
+#search-drink-container {
+    width: 100%;
+    background-size: cover;
+    background-position-y: -5em;
+    background-image: url("/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.7;
+}
+
+/* Mobile sizing for image container */
+@media screen and (max-width: 480px) {
+    #search-drink-container {
+        height: 50%;
+        background-position-y: 0em;
+        background-position-x: -15em;
+    }
+  }
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    #search-drink-container {
+        height: 500px;
+        background-position-y: -5em;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    #search-drink-container {
+        height: 650px;
+        background-position-y: -5em;
+        background-position-y: -8em;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #search-drink-container {
+        height: 650px;
+        background-position-y: -10em;
+    }
+}
+
+.navbar {
+    background-color: #2A324B !important;
+    box-shadow: #2A324B 0 2px 2px -1px;
+}
+
+.navbar-brand {
+    color: #F7C59F !important;
+    font-size: 45px;
+    font-family: 'Chilanka', cursive;
+}
