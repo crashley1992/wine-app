@@ -67,22 +67,22 @@ body {
 }
 /* Form Styling */
 form {
-    width: 25%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-top: 25%;
+    padding-top: 15%;
 }
 
-button {
-    float: right;
-    margin-left: 5% !important;
+.form-group {
+    width: 50%;
+    margin-left: 20%;
+    margin-right: auto;
+    display: inline-block;
 }
 
 #footer {
     width: 100%;
-    height: 50px;
-    bottom: 0;
-    left: 0;
+    height: 100px;
     background-color: #2A324B;
     position: absolute;
 }
