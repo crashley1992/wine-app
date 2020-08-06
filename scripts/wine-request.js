@@ -16,11 +16,28 @@ console.log(baseUrl)
 
         for (let i = 0; i < drinksList.length; i++) {
 
-            // console.log(drinksList[i])
+            // creates div that will be a card for each drink
+            const recipeContainer = $('<div>')
+            recipeContainer.addClass('recipe-container')
+
+            // drink objects that are iterated through are stored in this variable
             const drinkResults = drinksList[i]
-            console.log(drinkResults.strDrink)
+
+            // appends drink title
+            const drinkName = drinkResults.strDrink
+            const title = $('<h3>')
+            title.addClass('drink-title')
+            const drinkTitle = recipeContainer.append(title.text(drinkName))
+            $('.recipes').append(drinkTitle)
+
+
+            // drink images for each container
             const drinkImage = drinkResults.strDrinkThumb
-            console.log(drinkImage)
+            const image = $('<img>')
+            image.addClass('drink-img')
+            image.attr("src", drinkImage)
+            const drinkDisplay = recipeContainer.append(image)
+            $('.recipes').append(drinkDisplay)
 
 
             // Api didnt break ingredients into an array so each one must have it's own value
@@ -40,26 +57,35 @@ console.log(baseUrl)
             const fourteenIngredient = drinkResults.strIngredient14
             const fifteenIngredient = drinkResults.strIngredient15
 
-            // organized the ingredients into an array so null values could be controlled/better display later 
+            // organized the ingredients into an array so null values could be filtered out display later 
             const ingredients = [firstIngredient, secondIngredient, thirdIngredient, 
                                 fourthIngredient, fifthIngredient, sixthIngredient,
                                 seventhIngredient, eigthIngredient, ninethIngredient,
                                 tenthIngredient, elevenIngredient,  tweleveIngredient, 
                                 thirteenIngredient, fourteenIngredient, fifteenIngredient]
                    
-                    // mapped each ingredient and added conditional to get rid of null value for more clean displays
-                    ingredients.map( ingredient => {
-                        if (ingredient != null) {
-                            console.log(ingredient)
+                    // filters each ingredient to get rid of null value for more clean displays
+                    const ingredientResult = ingredients.filter(ingredient => ingredient != null)
+                    console.log(ingredientResult)
+
+                        const listContainer = $('<ul>')
+                        listContainer.addClass("container-ingredient-item")
+                        for (let j = 0; j < ingredientResult.length; j++ ) {
+                            const listItems = ingredientResult[j]
+                            const ingredientList = $("<p>").text(listItems)
+                            ingredientList.addClass("ingredient-item")
+                            listContainer.append(ingredientList)
+                            const list = recipeContainer.append(listContainer)
+                            $('.recipes').append(list)
                         }
-                    })
-
-         
-
-
+                        
+                    
             // Drink Instructions
             const drinkInstructions = drinkResults.strInstructions
             console.log(drinkInstructions)
+            const instructions = $('<p>').text(drinkInstructions)
+            instructions.addClass('instructions')
+            $('.recipes').append(instructions)
 
             // measurements for ingredients
             const amount1 = drinkResults.strMeasure1
@@ -72,10 +98,19 @@ console.log(baseUrl)
             amounts = [ amount1, amount2, amount3,
                         amount4, amount5, amount6
                       ]
-            amounts.map(amount => {
-                if (amount != null)
-                console.log(amounts)
-            })
-
+            // filters each amount to get rid of null value as well
+            const amountResult = amounts.filter(amount => amount != null)
+            console.log(amountResult)
+            
+            // const listAmountContainer = $('<ul>')
+            // listAmountContainer.addClass("container-ingredient-item")
+            // for (let x = 0; x < amountResult.length; i++) {
+            //     amountList = amountResult[x]
+            //     const measure = $("<p>").text(amountList)
+            //     measure.addClass("amount-list")
+            //     listAmountContainer.append(measure)
+            //     const measureList = recipeContainer.append(listAmountContainer)
+            //     $('.recipes').append(measureList)
+            
         }
     })
