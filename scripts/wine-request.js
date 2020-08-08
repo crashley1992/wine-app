@@ -1,8 +1,13 @@
-// test place holder
-const drink = 'margarita'
+$(document).on('submit',function(event){
+    // takes search value on submit
+    event.preventDefault()
+    let drink = $('#drink-submission').val()
+    console.log(drink)
+
 // API Key is the standard is for the test API from https://www.thecocktaildb.com/api.php that anyone can use
 const baseUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink;
-console.log(baseUrl)
+console.log(baseUrl + ' test')
+
 
 // gets inital response from API
     $.ajax({
@@ -18,7 +23,7 @@ console.log(baseUrl)
 
             // creates div that will be a card for each drink
             const recipeContainer = $('<div>')
-            recipeContainer.addClass('recipe-container')
+            recipeContainer.addClass('card')
 
             // drink objects that are iterated through are stored in this variable
             const drinkResults = drinksList[i]
@@ -72,7 +77,7 @@ console.log(baseUrl)
                         listContainer.addClass("container-ingredient-item")
                         for (let j = 0; j < ingredientResult.length; j++ ) {
                             const listItems = ingredientResult[j]
-                            const ingredientList = $("<p>").text(listItems)
+                            const ingredientList = $("<li>").text(listItems)
                             ingredientList.addClass("ingredient-item")
                             listContainer.append(ingredientList)
                             const list = recipeContainer.append(listContainer)
@@ -85,7 +90,8 @@ console.log(baseUrl)
             console.log(drinkInstructions)
             const instructions = $('<p>').text(drinkInstructions)
             instructions.addClass('instructions')
-            $('.recipes').append(instructions)
+            instructionsList = recipeContainer.append(instructions)
+            $('.recipes').append(instructionsList)
 
             // measurements for ingredients
             const amount1 = drinkResults.strMeasure1
@@ -98,19 +104,21 @@ console.log(baseUrl)
             amounts = [ amount1, amount2, amount3,
                         amount4, amount5, amount6
                       ]
+
             // filters each amount to get rid of null value as well
-            const amountResult = amounts.filter(amount => amount != null)
-            console.log(amountResult)
+            // const amountResult = amounts.filter(amount => amount != null)
+            // console.log(amountResult)
             
             // const listAmountContainer = $('<ul>')
-            // listAmountContainer.addClass("container-ingredient-item")
-            // for (let x = 0; x < amountResult.length; i++) {
+            // listAmountContainer.addClass("container-amount-item")
+            // for (let x = 0; x < amountResult.length; x++) {
             //     amountList = amountResult[x]
-            //     const measure = $("<p>").text(amountList)
+            //     const measure = $("<li>").text(amountList)
             //     measure.addClass("amount-list")
             //     listAmountContainer.append(measure)
             //     const measureList = recipeContainer.append(listAmountContainer)
             //     $('.recipes').append(measureList)
-            
+            // }
         }
     })
+})

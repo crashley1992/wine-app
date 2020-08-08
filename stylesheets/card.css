@@ -1,8 +1,39 @@
-.drink-img {
-    width: 100px;
-    height: 100px;
+.card {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+
 }
 
-.recipes {
-    text-align: center;
+.drink-img {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
 }
+
+.drink-title {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.container-ingredient-item {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2%;
+}
+
+.ingredient-item {
+    list-style: none;
+
+}
+
+.instructions {
+    padding: 5%;
+}
+
+
+
