@@ -1,2 +1,2 @@
 # wine-app
-App using JQuery for getting wine info
+App using JQuery for getting cocktail  info
